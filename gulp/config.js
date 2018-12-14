@@ -3,4 +3,5 @@ module.exports = [
     "./gulp/task/watch",
     "./gulp/task/pug",
     "./gulp/task/clean",
+    "./gulp/task/sass",
 ];
