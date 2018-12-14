@@ -9,6 +9,12 @@ global.$ = {
     sass: require('gulp-sass'),
     notify: require('gulp-notify'),
     autoprefixer: require('gulp-autoprefixer'),
+    // cssnano: require('gulp-cssnano'),
+    rename: require("gulp-rename"),
+    mincss: require("gulp-clean-css"),
+    plumber: require("gulp-plumber"),
+    sourcemaps: require("gulp-sourcemaps"),
+
 
     path: {
         tasks: require("./gulp/config.js")

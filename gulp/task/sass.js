@@ -9,9 +9,14 @@ module.exports = function() {
 			  )
 	        .pipe($.sass())
 	        .pipe($.autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) //автопрефикс
-	        .pipe($.gulp.dest('dest/css'))
-	        // .pipe( notify( 'Кэп! Твой код великолепен!' ) )
-            // .pipe($.browserSync.stream());
-            .on("end", $.browsersync.reload);
+					// .pipe($.gulp.dest('dest/css'))
+					.pipe($.mincss({compatibility: "ie8", level: {1: {specialComments: 0}}}))
+          .pipe($.rename({suffix: ".min"}))
+					// .pipe( notify( 'Кэп! Твой код великолепен!' ) )
+					.pipe($.replace("../../dest/", "../"))
+          .pipe($.plumber.stop())
+          .pipe($.sourcemaps.write("./maps/"))
+          .pipe($.gulp.dest("./dest/css/"))
+          .on("end", $.browsersync.reload);
 	});
 };
