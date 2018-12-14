@@ -7,5 +7,7 @@ module.exports = [
     "./gulp/task/images",
     "./gulp/task/favicons",
     "./gulp/task/iconfont",
+    "./gulp/task/transfer",
+
     
 ];

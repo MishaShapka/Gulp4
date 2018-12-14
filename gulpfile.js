@@ -22,7 +22,9 @@ global.$ = {
     iconfont: require("gulp-iconfont"),
     iconfontcss: require("gulp-iconfont-css"),
 	svgSprite: require("gulp-svg-sprites"),
-
+    babel: require("gulp-babel"),
+    uglify: require("gulp-uglify"),
+    concat: require("gulp-concat"),
 
     path: {
         tasks: require("./gulp/config.js")
@@ -34,7 +36,8 @@ $.path.tasks.forEach(function(taskPath) {
 });
 
 $.gulp.task("default", 
-    $.gulp.series("clean", "iconfont",
+    $.gulp.series("clean", "iconfont", 
     $.gulp.parallel("pug", "sass", "images", "favicons"),
+    $.gulp.parallel("transfer"),
     $.gulp.parallel("watch", "serve"),
 ));
