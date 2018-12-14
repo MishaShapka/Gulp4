@@ -14,6 +14,14 @@ global.$ = {
     mincss: require("gulp-clean-css"),
     plumber: require("gulp-plumber"),
     sourcemaps: require("gulp-sourcemaps"),
+    imagemin: require("gulp-imagemin"),
+    pngquant: require("imagemin-pngquant"),
+    imageminJpegRecompress: require("imagemin-jpeg-recompress"),
+    newer: require("gulp-newer"),
+    favicons: require("gulp-favicons"),
+    iconfont: require("gulp-iconfont"),
+    iconfontcss: require("gulp-iconfont-css"),
+	svgSprite: require("gulp-svg-sprites"),
 
 
     path: {
@@ -26,7 +34,7 @@ $.path.tasks.forEach(function(taskPath) {
 });
 
 $.gulp.task("default", 
-    $.gulp.series("clean",
-    $.gulp.parallel("pug", "sass"),
+    $.gulp.series("clean", "iconfont",
+    $.gulp.parallel("pug", "sass", "images", "favicons"),
     $.gulp.parallel("watch", "serve"),
 ));
