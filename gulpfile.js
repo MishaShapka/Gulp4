@@ -38,7 +38,7 @@ $.path.tasks.forEach(function(taskPath) {
 
 $.gulp.task("default", 
     $.gulp.series("clean", "iconfont", 
-    $.gulp.parallel("pug", "sass", "images", "favicons"),
+    $.gulp.parallel("pug", "sass", "scripts", "images", "favicons"),
     $.gulp.parallel("transfer"),
     $.gulp.parallel("watch", "serve"),
 ));
